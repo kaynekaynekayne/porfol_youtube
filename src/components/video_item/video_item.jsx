@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './video_item.module.css';
 
 const VideoItem = ({video}) => {
-    console.log(video)
 
     return(
         <li className={styles.container}>
