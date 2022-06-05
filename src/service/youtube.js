@@ -21,7 +21,6 @@ class Youtube{
             this.getRequestOptions);
         const result = await response.json();
         return result.items.map(item => ({ ...item, id: item.id.videoId }));
-        // .then(items => setVideos(items))
     }
 }
 
