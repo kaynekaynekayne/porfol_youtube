@@ -14,6 +14,15 @@ function App({youtube}) {
     setSelectedVideo(video);
   }
 
+  const channelPlaylist=(channelId)=>{
+    youtube
+    .channelPlaylist(channelId)
+    .then(videos=>{
+      setVideos(videos);
+      setSelectedVideo(null);
+    })
+  }
+
   const search=query=>{
     youtube
       .search(query)
@@ -22,6 +31,7 @@ function App({youtube}) {
         setSelectedVideo(null);
     })
   }
+
 
   useEffect(()=>{
     youtube
@@ -35,7 +45,10 @@ function App({youtube}) {
       <section className={styles.content}>
           {selectedVideo && (
             <div className={styles.detail}>
-               <VideoDetail video={selectedVideo}/>
+               <VideoDetail 
+                video={selectedVideo}
+                channelPlaylist={channelPlaylist}  
+              />
             </div>
           )
           }
