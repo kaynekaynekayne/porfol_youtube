@@ -14,7 +14,7 @@ const VideoDetail= ({video,channelPlaylist}) => (
             allowFullScreen>
         </iframe>
         <h2>{video.snippet.title}</h2>
-        <h3 onClick={()=>{channelPlaylist(video.snippet.channelId)}}>{video.snippet.channelTitle}</h3>
+        <span className={styles.channelTitle} onClick={()=>{channelPlaylist(video.snippet.channelId)}}>{video.snippet.channelTitle}</span>
         <pre className={styles.description}>{video.snippet.description}</pre>
     </section>
 );
