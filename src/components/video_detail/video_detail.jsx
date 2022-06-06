@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './video_detail.module.css';
 
-const VideoDetail= ({video,channelPlaylist}) => {
-    // console.log(video)
+const VideoDetail= ({video,getChannelVideos}) => {
+    console.log(video)
+    // video-> "선택 당한" 비디오 
     return (
         <section className={styles.detail}>
             <iframe 
@@ -16,7 +17,7 @@ const VideoDetail= ({video,channelPlaylist}) => {
                 allowFullScreen>
             </iframe>
             <h3>{video.snippet.title}</h3>
-            <span className={styles.channelTitle} onClick={()=>{channelPlaylist(video.snippet.channelId)}}>{video.snippet.channelTitle}</span>
+            <span className={styles.channelTitle} onClick={()=>{getChannelVideos(video.snippet.channelId)}}>{video.snippet.channelTitle}</span>
             <pre className={styles.description}>{video.snippet.description}</pre>
         </section>
     )

@@ -9,17 +9,29 @@ function App({youtube}) {
 
   const [videos,setVideos]=useState([]);
   const [selectedVideo, setSelectedVideo]=useState(null);
+  const [plId,setPlId]=useState("");
+
 
   const selectVideo=(video)=>{
     setSelectedVideo(video);
   }
 
-  const channelPlaylist=(channelId)=>{
+  const getChannelVideos=(channelId)=>{
     youtube
     .channelPlaylist(channelId)
     .then(videos=>{
-      setVideos(videos);
+      videos.map(video=>setPlId(video.id))
+    })
+    .then(()=>playlistItems(plId))
+  }
+
+  const playlistItems=(plId)=>{
+    youtube
+    .playlistItems(plId)
+    .then(items=>{
+      setVideos(items);
       setSelectedVideo(null);
+      setPlId("");
     })
   }
 
@@ -47,7 +59,7 @@ function App({youtube}) {
             <div className={styles.detail}>
                <VideoDetail 
                 video={selectedVideo}
-                channelPlaylist={channelPlaylist}  
+                getChannelVideos={getChannelVideos}  
               />
             </div>
           )
