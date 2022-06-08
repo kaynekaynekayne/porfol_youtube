@@ -20,7 +20,7 @@
     /* box-shadow: 3px 3px 5px 0px rgba(191,191,191,0.53); */
     cursor:pointer;
     transition:transform 200ms ease-in;   
-    background-color:rgb(34, 34, 34);
+    background-color:rgb(29, 28, 28);
     color:white;
 }
 
@@ -37,7 +37,7 @@
 .metadata{
     text-align:center;
     width:100%;
-
+    font-weight:200
 }
 
 .title{
