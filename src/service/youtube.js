@@ -26,9 +26,9 @@ class Youtube{
         const result=await response.json();
         console.log(result); 
         console.log("i'm in class of playlist items");
-        return result.items;
+        return result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
+        // return result.items;
         
-        // return result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
         // return result.items && result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
     }
 

@@ -37,7 +37,10 @@ function App({youtube}) {
 
     youtube
     .playlistItems(playlistId)
-    .then(items=>console.log(items))
+    .then(videos=>{
+      setVideos(videos);
+      setPlaylists([]);
+    })
   }
 
   const search=query=>{
@@ -55,7 +58,7 @@ function App({youtube}) {
     youtube
       .mostPopular()
       .then(videos=>{
-        setVideos(videos)
+        setVideos(videos);
         setPlaylists([]);
       })
   },[youtube]);
