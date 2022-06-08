@@ -18,7 +18,7 @@ class Youtube{
     }
     
     async playlistItems(plId){ //재생목록의 동영상들을 받아오는 용도
-        // console.log(plId);
+        console.log(plId);
 
         const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=26&playlistId=${plId}&key=${this.key}`, 
             this.getRequestOptions);
@@ -26,12 +26,10 @@ class Youtube{
         const result=await response.json();
         console.log(result); 
         console.log("i'm in class of playlist items");
-        return result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
-        // return result.items;
-
+        return result.items;
         
+        // return result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
         // return result.items && result.items.map(item=>({...item, id: item.snippet.resourceId.videoId}));
-    
     }
 
     async mostPopular(){    

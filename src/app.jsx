@@ -14,6 +14,7 @@ function App({youtube}) {
 
   console.log(playlists)
   console.log(playlists.length!==0)
+  console.log(videos)
 
   const onVideoClick=(video)=>{
     setSelectedVideo(video);
@@ -31,8 +32,12 @@ function App({youtube}) {
     })
   }
 
-  const playlistItems=(plId)=>{ //재생목록 안의 플리아이디 받아서 동영상 가져오는 용도
-    
+  const playlistItems=(playlistId)=>{ //재생목록 안의 플리아이디 받아서 동영상 가져오는 용도
+    console.log(playlistId)
+
+    youtube
+    .playlistItems(playlistId)
+    .then(items=>console.log(items))
   }
 
   const search=query=>{
@@ -72,7 +77,8 @@ function App({youtube}) {
 
           {playlists.length!==0 ?
             <ChannelVideoList 
-              playlists={playlists} 
+              playlists={playlists}
+              playlistItems={playlistItems} 
               display={selectedVideo ? 'list' : 'grid'}
             />
           : 
