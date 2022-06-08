@@ -4,7 +4,7 @@ import styles from './video_item.module.css';
 const VideoItem = memo(({video, onVideoClick, display}) => {
 
     const displayType = display==='list' ? styles.list : styles.grid;
-
+    
     return(
         <li 
             onClick={()=>{onVideoClick(video)}} 

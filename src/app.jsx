@@ -3,36 +3,36 @@ import SearchHeader from './components/search_header/search_header';
 import VideoList from './components/video_list/video_list';
 import VideoDetail from './components/video_detail/video_detail';
 import styles from './app.module.css';
+import ChannelVideoList from './components/channelVideo_list/channelVideo_list';
 
 
 function App({youtube}) {
 
-  const [videos,setVideos]=useState([]);
+  const [videos,setVideos]=useState([]);//videoList에 뿌리려는 용도
+  const [playlists,setPlaylists]=useState([]); //특정 채널의 비디오들
   const [selectedVideo, setSelectedVideo]=useState(null);
-  const [plId,setPlId]=useState("");
 
+  console.log(playlists)
+  console.log(playlists.length!==0)
 
-  const selectVideo=(video)=>{
+  const onVideoClick=(video)=>{
     setSelectedVideo(video);
   }
 
-  const getChannelVideos=(channelId)=>{
+  const getPlaylists=(channelId)=>{//채널의 재생목록을 받아오는 용도
+    console.log(`channelId: ${channelId}`)
+
     youtube
     .channelPlaylist(channelId)
-    .then(videos=>{
-      videos.map(video=>setPlId(video.id))
+    .then(items=>{
+      (items.length===0 && alert("이 채널의 재생목록 없음"))
+      setPlaylists(items);
+      setSelectedVideo(null);
     })
-    .then(()=>playlistItems(plId))
   }
 
-  const playlistItems=(plId)=>{
-    youtube
-    .playlistItems(plId)
-    .then(items=>{
-      setVideos(items);
-      setSelectedVideo(null);
-      setPlId("");
-    })
+  const playlistItems=(plId)=>{ //재생목록 안의 플리아이디 받아서 동영상 가져오는 용도
+    
   }
 
   const search=query=>{
@@ -41,6 +41,7 @@ function App({youtube}) {
       .then(videos=>{
         setVideos(videos);
         setSelectedVideo(null);
+        setPlaylists([]);
     })
   }
 
@@ -48,7 +49,10 @@ function App({youtube}) {
   useEffect(()=>{
     youtube
       .mostPopular()
-      .then(videos=>setVideos(videos))
+      .then(videos=>{
+        setVideos(videos)
+        setPlaylists([]);
+      })
   },[youtube]);
 
   return (
@@ -59,17 +63,25 @@ function App({youtube}) {
             <div className={styles.detail}>
                <VideoDetail 
                 video={selectedVideo}
-                getChannelVideos={getChannelVideos}  
+                getPlaylists={getPlaylists}  
               />
             </div>
           )
           }
         <div className={styles.list}>
-          <VideoList 
-            videos={videos} 
-            onVideoClick={selectVideo}
-            display={selectedVideo ? 'list' : 'grid'}
+
+          {playlists.length!==0 ?
+            <ChannelVideoList 
+              playlists={playlists} 
+              display={selectedVideo ? 'list' : 'grid'}
             />
+          : 
+            <VideoList 
+              videos={videos} 
+              onVideoClick={onVideoClick}
+              display={selectedVideo ? 'list' : 'grid'}
+            />
+          }
         </div>
       </section>
     </div>
