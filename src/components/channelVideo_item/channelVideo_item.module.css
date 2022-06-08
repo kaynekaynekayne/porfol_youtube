@@ -3,7 +3,7 @@
 }
 
 .container.grid{
-    width:100%
+    width:50%
 }
 
 .container.list{
@@ -15,15 +15,17 @@
     height: 100%;
     display: flex;
     align-items: center;
-    border:1px solid lightgray;
+    /* border:1px solid lightgray; */
     /* box-shadow: 3px 3px 5px 0px rgba(191,191,191,0.53); */
     cursor:pointer;
-    transition:transform 250ms ease-in;
-
+    transition:transform 200ms ease-in;   
+    background-color:rgb(34, 34, 34);
+    color:white;
 }
 
 .video:hover{
-    transform: scale(1.02);
+    transform: scale(1.01);
+    opacity:0.8;
 }
 
 .thumbnail{
@@ -32,14 +34,21 @@
 }
 
 .metadata{
-    margin-left:0.2em;
+    text-align:center;
+    width:100%;
+
 }
 
-.title, .channel{
-    margin:0;
-    font-size:0.8rem;
+.title{
+    font-size:1.3rem;
 }
 
 .channel{
-    font-size:0.6rem;
+    font-size:0.8rem;
+}
+
+@media screen and (max-width:768px){
+    .container.grid{
+        width:100%
+    }
 }

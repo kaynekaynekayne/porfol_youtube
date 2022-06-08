@@ -1,5 +1,6 @@
 .container{
     padding:0.2em;
+
 }
 
 .container.grid{
@@ -18,7 +19,7 @@
     border:1px solid lightgray;
     box-shadow: 3px 3px 5px 0px rgba(191,191,191,0.53);
     cursor:pointer;
-    transition:transform 250ms ease-in;
+    transition:transform 200ms ease-in-out;
 
 }
 
@@ -32,14 +33,32 @@
 }
 
 .metadata{
-    margin-left:0.2em;
+    text-align:center;
+    width:100%;
+    padding:0.6rem;
+
 }
 
-.title, .channel{
+.title, 
+.channel{
     margin:0;
-    font-size:0.8rem;
+
+}
+
+.title{
+    font-weight:600;
+
 }
 
 .channel{
-    font-size:0.6rem;
+    color:rgb(92, 92, 92);
+    font-size:13px;
+}
+
+@media screen and (max-width:768px){
+    .title, 
+    .channel{
+        margin:0;
+        font-size:13px;
+    }
 }

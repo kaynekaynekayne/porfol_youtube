@@ -21,7 +21,7 @@ const VideoDetail= ({video,getPlaylists}) => {
                 frameBorder="0" 
                 allowFullScreen>
             </iframe>
-            <h3>{video.snippet.title}</h3>
+            <h3>{video.snippet.title.replace(/&quot;/g, '\"')}</h3>
             <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
             <pre className={styles.description}>{video.snippet.description}</pre>
         </section>
