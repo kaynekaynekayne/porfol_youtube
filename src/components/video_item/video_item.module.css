@@ -56,9 +56,10 @@
 }
 
 @media screen and (max-width:768px){
-    .title, 
+    .title{
+        font-size:12px;
+    }
     .channel{
-        margin:0;
-        font-size:13px;
+        font-size:11px;
     }
 }
