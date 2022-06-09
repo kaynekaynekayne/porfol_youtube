@@ -54,8 +54,7 @@
 }
 
 @media screen and (max-width:768px){
-    .container.grid{
-        width:50%
+    .container.grid,.container.list{
+        width:50%;
     }
-
 }

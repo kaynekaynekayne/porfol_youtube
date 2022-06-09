@@ -2,7 +2,7 @@ import React from 'react';
 import ChannelVideoItem from '../channelVideo_item/channelVideo_item';
 import styles from './channelVideo_list.module.css';
 
-const ChannelVideoList = ({playlists,display,playlistItems}) => {
+const ChannelVideoList = ({playlists,playlistItems}) => {
 
     return(
         <ul className={styles.videos}>
@@ -10,7 +10,6 @@ const ChannelVideoList = ({playlists,display,playlistItems}) => {
                 <ChannelVideoItem
                     key={playlist.id} 
                     playlist={playlist}
-                    display={display}
                     playlistItems={playlistItems}
                 />
             )}

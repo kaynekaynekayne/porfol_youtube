@@ -74,7 +74,6 @@ function App({youtube}) {
             <ChannelVideoList 
               playlists={playlists}
               playlistItems={playlistItems} 
-              display={selectedVideo ? 'list' : 'grid'}
             />
           : 
             <VideoList 
