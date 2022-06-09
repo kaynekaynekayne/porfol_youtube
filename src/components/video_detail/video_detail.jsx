@@ -33,13 +33,18 @@ const VideoDetail= ({video,getPlaylists}) => {
                 <i id={styles.channelLogo} className="fas fa-check-square"></i>
             </div>
             <div className={styles.textbox}>
-                <pre className={styles.description}>
-                    {showMore ? description : description.length>300 && description.substr(0,298) }
-                </pre>
-                <button
-                    className={styles.showButton} 
-                    onClick={()=>setShowMore(!showMore)}>show more
-                </button>
+                {description.length<300 ? 
+                    <pre className={styles.description}>{description}</pre> : 
+                    <>
+                        <pre className={styles.description}>
+                            {showMore ? description : description.substr(0,298) }
+                        </pre>
+                        <button
+                            className={styles.showButton} 
+                            onClick={()=>setShowMore(!showMore)}>show more
+                        </button>
+                    </>
+                }
             </div>
         </section>
     )
