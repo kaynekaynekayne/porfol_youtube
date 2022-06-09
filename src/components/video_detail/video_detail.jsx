@@ -26,7 +26,7 @@ const VideoDetail= ({video,getPlaylists}) => {
             <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
             <div className={styles.box}>
                 <pre className={styles.description}>
-                    {showMore ? description : description.substr(0,298)+"..." }
+                    {showMore ? description : description.substr(0,298) }
                 </pre>
                 <button
                     className={styles.showButton} 
