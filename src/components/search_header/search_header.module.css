@@ -5,12 +5,12 @@
     width:100%;
     height:4rem;
     align-items: center;
-    padding-top:0.6rem;
 }
 
 .logo{
     padding-right:1rem;
-    padding-top:0.4rem;
+    padding-top:0.2rem;
+    cursor: pointer;
 }
 
 .input{
@@ -31,3 +31,4 @@
 #searchLogo:hover{
     color:red;
 }
+

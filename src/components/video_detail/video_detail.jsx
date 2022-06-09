@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styles from './video_detail.module.css';
 
 const VideoDetail= ({video,getPlaylists}) => {
     
+    const {description}=video.snippet;
+    const [showMore,setShowMore]=useState(false);
+
     const onClickChannel=()=>{
         getPlaylists(video.snippet.channelId)
     }
@@ -21,7 +24,15 @@ const VideoDetail= ({video,getPlaylists}) => {
             </iframe>
             <h3>{video.snippet.title.replace(/&quot;/g, '\"')}</h3>
             <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
-            <pre className={styles.description}>{video.snippet.description}</pre>
+            <div className={styles.box}>
+                <pre className={styles.description}>
+                    {showMore ? description : description.substr(0,298)+"..." }
+                </pre>
+                <button
+                    className={styles.showButton} 
+                    onClick={()=>setShowMore(!showMore)}>show more
+                </button>
+            </div>
         </section>
     )
 };

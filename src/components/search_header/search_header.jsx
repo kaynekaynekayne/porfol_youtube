@@ -20,10 +20,14 @@ const SearchHeader = ({onSearch}) => {
         }
     }
 
+    const reload=()=>{
+        window.location.reload();
+    }
+
     return(
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img className={styles.img} src="/images/logo.png" alt="logo"/>
+                <img className={styles.img} src="/images/logo.png" alt="logo" onClick={reload}/>
             </div>
             <input 
                 ref={inputRef}

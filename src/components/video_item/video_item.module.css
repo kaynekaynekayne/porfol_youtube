@@ -58,3 +58,17 @@
         width:50%;
     }
 }
+
+@media screen and (max-width:480px){
+    .container{
+        padding-bottom:1.5rem;
+    }
+    
+    .container.grid{
+        width:100%;
+    }
+
+    .container.list{
+        width:100%;
+    }
+}
