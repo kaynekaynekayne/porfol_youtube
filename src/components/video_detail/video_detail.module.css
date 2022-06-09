@@ -2,7 +2,11 @@
     padding:0.2em;
 }
 
-.box{
+.channel{
+    padding:0;
+}
+
+.textbox{
     padding:1em 0;
 }
 
@@ -15,6 +19,16 @@
 .channelTitle{
     cursor:pointer;
     font-weight:600;
+    transition: all 150ms ease-in;
+}
+
+.channelTitle:hover{
+    color:rgb(44, 104, 215);
+}
+
+#channelLogo{
+    color:rgb(44, 104, 215);
+    padding-left:5px;
 }
 
 .showButton{

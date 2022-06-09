@@ -23,8 +23,11 @@ const VideoDetail= ({video,getPlaylists}) => {
                 allowFullScreen>
             </iframe>
             <h3>{video.snippet.title.replace(/&quot;/g, '\"')}</h3>
-            <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
-            <div className={styles.box}>
+            <div className={styles.channel}>
+                <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
+                <i id={styles.channelLogo} className="fas fa-check-square"></i>
+            </div>
+            <div className={styles.textbox}>
                 <pre className={styles.description}>
                     {showMore ? description : description.substr(0,298) }
                 </pre>
