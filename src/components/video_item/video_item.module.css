@@ -1,10 +1,9 @@
 .container{
     padding:0.2em;
-
 }
 
 .container.grid{
-    width:50%
+    width:33%
 }
 
 .container.list{
@@ -15,6 +14,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     border:1px solid lightgray;
     box-shadow: 3px 3px 5px 0px rgba(191,191,191,0.53);
@@ -28,26 +28,24 @@
 }
 
 .thumbnail{
-    width:40%;
-    height:100%;
+    width:100%;
 }
 
 .metadata{
     text-align:center;
     width:100%;
-    padding:0.6rem;
-
+    height:100%;
+    padding:0.7rem;
 }
 
 .title, 
 .channel{
     margin:0;
-
 }
 
 .title{
     font-weight:600;
-    padding-bottom:5px;
+    font-size:15px;
 }
 
 .channel{
@@ -56,10 +54,8 @@
 }
 
 @media screen and (max-width:768px){
-    .title{
-        font-size:12px;
+    .container.grid{
+        width:50%
     }
-    .channel{
-        font-size:11px;
-    }
+
 }

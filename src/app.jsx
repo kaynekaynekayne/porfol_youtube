@@ -8,21 +8,15 @@ import ChannelVideoList from './components/channelVideo_list/channelVideo_list';
 
 function App({youtube}) {
 
-  const [videos,setVideos]=useState([]);//videoList에 뿌리려는 용도
-  const [playlists,setPlaylists]=useState([]); //특정 채널의 비디오들
+  const [videos,setVideos]=useState([]);
+  const [playlists,setPlaylists]=useState([]);
   const [selectedVideo, setSelectedVideo]=useState(null);
-
-  console.log(playlists)
-  console.log(playlists.length!==0)
-  console.log(videos)
 
   const onVideoClick=(video)=>{
     setSelectedVideo(video);
   }
 
-  const getPlaylists=(channelId)=>{//채널의 재생목록을 받아오는 용도
-    console.log(`channelId: ${channelId}`)
-
+  const getPlaylists=(channelId)=>{
     youtube
     .channelPlaylist(channelId)
     .then(items=>{
@@ -32,9 +26,7 @@ function App({youtube}) {
     })
   }
 
-  const playlistItems=(playlistId)=>{ //재생목록 안의 플리아이디 받아서 동영상 가져오는 용도
-    console.log(playlistId)
-
+  const playlistItems=(playlistId)=>{
     youtube
     .playlistItems(playlistId)
     .then(videos=>{

@@ -11,7 +11,7 @@ const ChannelVideoItem = memo(({playlist, display, playlistItems}) => {
             className={`${styles.container} ${displayType}`}>
             <div className={styles.video}>
 
-                {thumbnails.high===undefined ? 
+                {thumbnails.medium===undefined ? 
                     (<img 
                         className={styles.thumbnail} 
                         src="/images/empty-background.png" 
@@ -20,13 +20,12 @@ const ChannelVideoItem = memo(({playlist, display, playlistItems}) => {
                     : 
                     (<img 
                         className={styles.thumbnail} 
-                        src={thumbnails.high.url}
+                        src={thumbnails.medium.url}
                         alt="thumbnail">
                     </img>)
                 }
                 <div className={styles.metadata}>
                     <p className={styles.title}>{playlist.snippet.title}</p>
-                    {/* <p className={styles.channel}>{playlist.snippet.channelTitle}</p> */}
                 </div>
             </div>
         </li>

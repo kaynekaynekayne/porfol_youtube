@@ -2,10 +2,8 @@ import React from 'react';
 import styles from './video_detail.module.css';
 
 const VideoDetail= ({video,getPlaylists}) => {
-    // video-> "선택 당한" 비디오 
     
-    const onClickChannel=()=>{ //채널명 클릭
-        console.log("click channel")
+    const onClickChannel=()=>{
         getPlaylists(video.snippet.channelId)
     }
 
