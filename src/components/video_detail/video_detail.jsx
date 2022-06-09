@@ -11,7 +11,8 @@ const VideoDetail= ({video,getPlaylists}) => {
     }
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        setShowMore(false);
     }, [video])
 
     return (
@@ -33,7 +34,7 @@ const VideoDetail= ({video,getPlaylists}) => {
             </div>
             <div className={styles.textbox}>
                 <pre className={styles.description}>
-                    {showMore ? description : description.substr(0,298) }
+                    {showMore ? description : description.length>300 && description.substr(0,298) }
                 </pre>
                 <button
                     className={styles.showButton} 
