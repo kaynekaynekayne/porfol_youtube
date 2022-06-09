@@ -45,7 +45,6 @@ function App({youtube}) {
     })
   }
 
-
   useEffect(()=>{
     youtube
       .mostPopular()
@@ -62,8 +61,8 @@ function App({youtube}) {
           {selectedVideo && (
             <div className={styles.detail}>
                <VideoDetail 
-                video={selectedVideo}
-                getPlaylists={getPlaylists}  
+                  video={selectedVideo}
+                  getPlaylists={getPlaylists}  
               />
             </div>
           )

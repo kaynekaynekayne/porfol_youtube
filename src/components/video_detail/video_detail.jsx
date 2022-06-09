@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import styles from './video_detail.module.css';
 
 const VideoDetail= ({video,getPlaylists}) => {
@@ -9,6 +9,10 @@ const VideoDetail= ({video,getPlaylists}) => {
     const onClickChannel=()=>{
         getPlaylists(video.snippet.channelId)
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [video])
 
     return (
         <section className={styles.detail}>
