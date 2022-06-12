@@ -30,7 +30,6 @@ const VideoDetail= ({video,getPlaylists}) => {
             <h3>{video.snippet.title.replace(/&quot;/g, '\"')}</h3>
             <div className={styles.channel}>
                 <span className={styles.channelTitle} onClick={onClickChannel}>{video.snippet.channelTitle}</span>
-                <i id={styles.channelLogo} className="fas fa-check-square"></i>
             </div>
             <div className={styles.textbox}>
                 {description.length<300 ? 
